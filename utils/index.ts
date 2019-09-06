@@ -18,16 +18,16 @@ export const parseText = (text: string) => {
 
 }
 
-export const sampleMessageGenerator = () => {
-  // const text =
-  // {
-  //   "_id": 1,
-  //   "text": "Hello developer",
-  //   "createdAt": "2019-09-06T11:51:01.990Z",
-  //   "user": {
-  //     "_id": 2,
-  //     "name": "React Native",
-  //     "avatar": "https://placeimg.com/140/140/any"
-  //   }
-  // },
+export const sampleMessageGenerator = (parsedText) => {
+  const text =
+  {
+    "_id": 1,
+    text: parsedText.text,
+    "createdAt": "2019-09-06T11:51:01.990Z",
+    "user": {
+      "_id": 2,
+      "name": "React Native",
+      "avatar": "https://placeimg.com/140/140/any"
+    }
+  },
 };
