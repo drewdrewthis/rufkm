@@ -1,5 +1,16 @@
 import React from "react";
-import { GiftedChat } from "react-native-gifted-chat";
+import { GiftedChat, IMessage } from "react-native-gifted-chat";
+
+const copyMessage = (message: IMessage): IMessage => ({
+  _id: message._id + 1,
+  text: message.text,
+  createdAt: new Date(),
+  user: {
+    _id: 2,
+    name: "React Native",
+    avatar: "https://placeimg.com/140/140/any"
+  }
+});
 
 class Example extends React.Component {
   state = {
@@ -25,7 +36,12 @@ class Example extends React.Component {
 
   onSend(messages = []) {
     this.setState(previousState => ({
-      messages: GiftedChat.append(previousState.messages, messages)
+      messages: GiftedChat.append(
+        previousState.messages,
+        messages.concat([
+          copyMessage(messages[messages.length - 1])
+        ])
+      )
     }));
   }
 
